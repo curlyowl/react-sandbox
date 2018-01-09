@@ -8,6 +8,7 @@ class Project extends Component {
 
   render() {
     const {name, addVacancy, finish, remove} = this.props;
+    console.log(finish);
     return <div>
       <div>{name}</div>
       <div>
