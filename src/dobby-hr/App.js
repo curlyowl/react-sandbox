@@ -1,5 +1,9 @@
 import React from 'react';
+import { createStore } from 'redux';
 import Project from './components/Project';
+import projects from './reducers/projects';
+
+const store = createStore(projects);
 
 class App extends React.Component {
   constructor(props) {
@@ -8,16 +12,13 @@ class App extends React.Component {
   addVacancy() {
     console.log('add vacancy');
   }
-  finish() {
-    console.log('finish');
-  }
   remove() {
     console.log('remove');
   }
   render() {
     console.log(this.props.projects);
     const projectList = this.props.projects.map((project) =>
-      <Project key={project.id} name={project.name} id={project.id} addVacancy={this.addVacancy} finish={this.finish} remove={this.remove}/>
+      <Project key={project.id} name={project.name} id={project.id} addVacancy={this.addVacancy} finish={() => {store.dispatch({type: 'FINISH_PROJECT'})}} remove={this.remove}/>
     );
 
     return <div>

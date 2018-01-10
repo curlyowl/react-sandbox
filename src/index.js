@@ -16,8 +16,6 @@ const store = createStore(projects);
 ReactDOM.render(
   <App
     projects={PROJECTS}
-    finish={store.dispatch({type: ''})}
-
   />,
   document.querySelector('#root')
 );
